@@ -1,0 +1,92 @@
+
+$brand-color: #D74B4B  
+$black:       #252525 
+$gray-l:      #FAFAFA 
+
+*,
+  box-sizing: border-box
+
+.annotation
+  background-color: $gray-l
+  color: $brand-color
+  display: inline-block
+  padding: 2px 8px
+  font-family: courier
+  border-radius: 2px
+  margin: 2px 10px
+
+.no
+  font-weight: 10pt
+  font-weight: bold
+  background-color: $gray-l
+  padding: 5px 10px
+  border-radius: 5px
+  display: block
+  margin: 5px
+
+body
+  font-family: 'roboto', sans-serif
+  margin: 0
+  font-size: 9pt
+  
+a 
+  text-decoration: none
+  color: black
+
+h1
+  color: #0a0a0a
+
+.query
+  background-color: #efefef
+  padding: 10px
+  border-radius: 5px
+
+.result
+  background-color: #efefef
+  padding: 10px
+  border-radius: 5px
+
+.wrapper
+  width: 100%
+  min-height: 100%
+  display: flex
+
+  .left
+    max-width: 300px
+    min-width: 300px
+    padding: 10px
+    background-color: #fafafa
+    
+    ul
+      margin: 0
+      padding: 0
+
+      li
+        border-radius: 4px
+        list-style:  none
+        background-color: #efefef
+        padding: 10px
+        line-height: 1.5
+        margin: 10px
+        overflow: hidden
+
+        &.active
+          color: bo
+          .no
+            background-color: $brand-color
+            color: $gray-l
+
+          strong
+            color: lighten($brand-color,30%)
+
+  .right
+    padding: 10px
+    padding-left: 50px
+    ul
+      li
+        line-height: 1.5
+        min-height: 25px
+
+    h1
+      margin-bottom: 40px
+

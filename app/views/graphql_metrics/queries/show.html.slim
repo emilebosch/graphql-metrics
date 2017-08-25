@@ -1,0 +1,34 @@
+h1 Query ##{params[:id]} - #{@query.fields.count} fields
+
+h2 3 Slowest fields
+ul
+  - for field in @query.fields.sort_by {|x|x.time}.reverse.take(3)
+    li
+      b=field.type
+      ="." + field.name
+      = "- " + field.path.join("/")
+      = " "
+      b #{field.time.round(2)}ms
+      - field.annotations.each do |x|
+        .annotation=x
+
+h2 Query
+pre.query=@query.to_query_string
+
+h2 Result
+pre.result=JSON.pretty_generate(@query.query.result["data"])
+
+h2 All fields
+ul
+  - for field in @query.fields.sort_by {|x|x.time}.reverse
+    li
+      b=field.type
+      ="." + field.name
+      = "- " + field.path.join("/")
+      = " "
+      b #{field.time.round(2)}ms
+      - field.annotations.each do |x|
+        .annotation=x
+  
+
+

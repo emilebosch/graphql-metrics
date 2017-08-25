@@ -1,0 +1,10 @@
+h2 #{GraphqlMetrics::Store.instance.queries.count} queries
+ul
+  - a = GraphqlMetrics::Store.instance.queries.count-1
+  - GraphqlMetrics::Store.instance.queries.reverse.each_with_index do |query,i|
+    = link_to(query_path(a-i)) do
+      li class=[(a-i).to_s == params[:id] ? "active" : ""]
+        span.no ##{(a-i)} - #{query.time.round(2)}ms - #{query.fields.count} fields
+        pre= query.to_query_string
+        div
+          strong 
