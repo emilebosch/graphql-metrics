@@ -1,7 +1,9 @@
 # Graphql metrics
 
-Simple performance dashboard for graphql queries for runtime development. Ouput of the Graphql hackathon. Dont run this in production.
+![alt text](https://raw.githubusercontent.com/emilebosch/graphql-metrics/master/metric.png)
 
+
+Simple performance dashboard for graphql queries for runtime development. Ouput of the Graphql hackathon. Only use for performance usage in development, dont run this in production.
 
 Add to bundle:
 
