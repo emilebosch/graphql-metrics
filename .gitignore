@@ -2,7 +2,10 @@
 
 For development debugging only.
 
+Install the gem:
 
+```
+```
 
 Add to your routes file:
 
