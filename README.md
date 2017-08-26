@@ -1,28 +1,29 @@
-# GraphqlMetrics
-Short description and motivation.
+# Graphql metrics
 
-## Usage
-How to use my plugin.
+Simple development dashboard for graphql queries. Ouput of the Graphql hackathon. Dont run this in production.
 
-## Installation
-Add this line to your application's Gemfile:
+Add to bundle:
 
-```ruby
-gem 'graphql_metrics'
+```
+gem 'graphql_metrics',source: 'https://github.com/emilebosch/graphql-metrics.git'
 ```
 
-And then execute:
-```bash
-$ bundle
+Add to your graphql schema:
+
+```
+Schema = GraphQL::Schema.define do
+  query(Types::Query)
+  mutation(Types::Mutation)
+  
+  instrument :field, GraphqlMetrics::FieldInstrumentation.new
+  instrument :query, GraphqlMetrics::QueryInstrumentation.new
+end
 ```
 
-Or install it yourself as:
-```bash
-$ gem install graphql_metrics
+Then mount your engine at `/metrics`
+
+```
+mount GraphqlMetrics::Engine, at: '/metrics'
 ```
 
-## Contributing
-Contribution directions go here.
-
-## License
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+Tadaa..
