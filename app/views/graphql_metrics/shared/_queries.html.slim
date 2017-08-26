@@ -1,4 +1,4 @@
-h2 #{GraphqlMetrics::Store.instance.queries.count} queries
+h2=link_to "#{GraphqlMetrics::Store.instance.queries.count} queries", root_path
 ul
   - a = GraphqlMetrics::Store.instance.queries.count-1
   - GraphqlMetrics::Store.instance.queries.reverse.each_with_index do |query,i|

@@ -42,10 +42,6 @@ module GraphqlMetrics
       @fields ||= []
     end
 
-    def field_count
-      13
-    end
-
     def time
       fields.sum(&:time)
     end
@@ -72,8 +68,8 @@ module GraphqlMetrics
 
         f = Field.new(type.name, field.name, ctx.path)
         old_resolve_proc.to_s =~ /@(.*):(\d+)/
-        
-        f.annotate "in #{$1}:#{$2}" unless $1.blank?
+        x=$2
+        f.annotate "in #{$1.gsub Rails.root.join("app").to_s,""}:#{x}" unless $1.blank?
         
         ctx[:field] = f
 
@@ -107,11 +103,7 @@ module GraphqlMetrics
 
     def after_query(query)
       $MUTEX.synchronize {
-        Rails.logger.debug "EIND QUERYYYYYYYYYYY #{Time.now} - #{Thread.current.object_id}"
-        Rails.logger.debug GraphqlMetrics::Store.instance.queries.count
         GraphqlMetrics::Store.instance.queries << query.context[:query]
-        Rails.logger.debug GraphqlMetrics::Store.instance.queries.object_id
-        Rails.logger.debug GraphqlMetrics::Store.instance.queries.count
       }
     end
   end

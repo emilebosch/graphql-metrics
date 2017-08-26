@@ -1,9 +1,23 @@
 $brand-color: #D74B4B  
 $black:       #252525 
-$gray-l:      #FAFAFA 
+$gray-l:      #FAFAFA
 
 *,
   box-sizing: border-box
+
+.blank
+  background-color: #efefef
+  padding: 40px
+  text-align: center
+
+.type
+  display: inline-block
+  background-color: #efefef
+  padding: 1px 4px
+  margin: 2px 2px
+  border-radius: 2px
+  border-right: 1px solid #cecece
+  border-bottom: 1px solid #cecece
 
 .annotation
   background-color: $gray-l
@@ -12,14 +26,15 @@ $gray-l:      #FAFAFA
   padding: 2px 8px
   font-family: courier
   border-radius: 2px
-  margin: 2px 10px
+  margin: 2px 0px
+  margin-left: 10px
 
 .no
   font-weight: 10pt
-  font-weight: bold
+  
   background-color: $gray-l
   padding: 5px 10px
-  border-radius: 5px
+  border-radius: 3px
   display: block
   margin: 5px
 
@@ -35,12 +50,7 @@ a
 h1
   color: #0a0a0a
 
-.query
-  background-color: #efefef
-  padding: 10px
-  border-radius: 5px
-
-.result
+.code
   background-color: #efefef
   padding: 10px
   border-radius: 5px
@@ -51,11 +61,15 @@ h1
   display: flex
 
   .left
+    border-right: 1px solid lighten(#a0a0a0, 20%)
     max-width: 300px
     min-width: 300px
     padding: 10px
     background-color: #fafafa
     
+    h2
+      padding: 10px
+
     ul
       margin: 0
       padding: 0
@@ -70,7 +84,6 @@ h1
         overflow: hidden
 
         &.active
-          color: bo
           .no
             background-color: $brand-color
             color: $gray-l
@@ -88,4 +101,11 @@ h1
 
     h1
       margin-bottom: 40px
+
+    h2
+      color: $brand-color
+
+    pre
+      line-height: 1.5
+
 

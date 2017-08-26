@@ -1,7 +1,11 @@
-.bundle/
-log/*.log
-pkg/
-test/dummy/db/*.sqlite3
-test/dummy/db/*.sqlite3-journal
-test/dummy/log/*.log
-test/dummy/tmp/
+# Graphql Metrics
+
+For development debugging only.
+
+
+
+Add to your routes file:
+
+```ruby
+mount GraphqlMetrics::Engine, at: '/metrics'
+```
