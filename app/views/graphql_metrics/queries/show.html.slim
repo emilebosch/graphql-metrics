@@ -1,16 +1,7 @@
 h1 Query ##{params[:id]} - #{@query.fields.count} fields - #{@query.time.round(2)}ms 
 
 h2 10 slowest fields
-ul
-  - for field in @query.fields.sort_by {|x|x.time}.reverse.take(10)
-    li
-      = field.path.join('.')
-      .type #{field.type}.#{field.name}
-      = " "
-      b #{field.time.round(2)}ms
-      - field.annotations.each do |x|
-        .annotation=x
-
+= render "graphql_metrics/shared/fields", fields: @query.fields.sort_by {|x|x.time}.reverse.take(10)
 
 / =JSON.pretty_generate(ok(@query))
 h2 Query
@@ -20,18 +11,4 @@ h2 Result
 pre.code=JSON.pretty_generate(@query.query.result["data"])
 
 h2 All fields
-ul
-  - for field in @query.fields.sort_by {|x|x.time}.reverse
-    li
-      .type
-        =field.type
-        ="." + field.name
-
-      = "- " + field.path.join("/")
-      = " "
-      b #{field.time.round(2)}ms
-      - field.annotations.each do |x|
-        .annotation=x
-  
-
-
+= render "graphql_metrics/shared/fields", fields: @query.fields

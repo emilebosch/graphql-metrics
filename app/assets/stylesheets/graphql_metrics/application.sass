@@ -56,20 +56,20 @@ h1
   border-radius: 5px
 
 .wrapper
-  width: 100%
-  min-height: 100%
   display: flex
 
   .left
     border-right: 1px solid lighten(#a0a0a0, 20%)
-    max-width: 300px
-    min-width: 300px
+
+    flex: 0 0 300px
     padding: 10px
     background-color: #fafafa
 
     pre
+      line-height: 1.5
       max-height: 300px
-    
+      break-word: break-word
+
     h2
       padding: 10px
 
@@ -97,6 +97,8 @@ h1
   .right
     padding: 10px
     padding-left: 50px
+    flex: 1
+
     ul
       li
         line-height: 1.5
@@ -110,5 +112,7 @@ h1
 
     pre
       line-height: 1.5
+
+
 
 

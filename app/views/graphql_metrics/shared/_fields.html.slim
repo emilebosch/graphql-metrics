@@ -1,0 +1,9 @@
+ul
+  - for field in fields
+    li
+      = field.path.join('.')
+      .type #{field.type}.#{field.name}
+      = " "
+      b #{field.time.round(2)}ms
+      - field.annotations.each do |x|
+        .annotation=x
