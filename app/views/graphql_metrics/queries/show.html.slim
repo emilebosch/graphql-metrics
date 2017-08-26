@@ -1,5 +1,8 @@
 h1 Query ##{params[:id]} - #{@query.fields.count} fields - #{@query.time.round(2)}ms 
 
+h2 Variables
+pre.code=@query.query.provided_variables.to_json
+
 h2 10 slowest fields
 = render "graphql_metrics/shared/fields", fields: @query.fields.sort_by {|x|x.time}.reverse.take(10)
 
