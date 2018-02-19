@@ -58,17 +58,19 @@ h1
 .wrapper
   display: flex
 
+  pre
+    line-height: 1.5
+    max-height: 300px
+    overflow: auto
+    break-word: break-word
+
   .left
     border-right: 1px solid lighten(#a0a0a0, 20%)
+    max-width: 50vw
 
     flex: 0 0 300px
     padding: 10px
     background-color: #fafafa
-
-    pre
-      line-height: 1.5
-      max-height: 300px
-      break-word: break-word
 
     h2
       padding: 10px
@@ -98,6 +100,7 @@ h1
     padding: 10px
     padding-left: 50px
     flex: 1
+    max-width: 50vw
 
     ul
       li
@@ -109,10 +112,3 @@ h1
 
     h2
       color: $brand-color
-
-    pre
-      line-height: 1.5
-
-
-
-
