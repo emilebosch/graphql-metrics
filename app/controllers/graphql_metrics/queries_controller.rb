@@ -1,6 +1,6 @@
 module GraphqlMetrics
   class QueriesController < ApplicationController
-    layout "graphql_metrics/application"  
+    layout "graphql_metrics/application"
 
     def index
     end
