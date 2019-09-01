@@ -20,7 +20,7 @@ Add to your graphql schema:
 Schema = GraphQL::Schema.define do
   query(Types::Query)
   mutation(Types::Mutation)
-  
+
   instrument :field, GraphqlMetrics::FieldInstrumentation.new
   instrument :query, GraphqlMetrics::QueryInstrumentation.new
 end
@@ -34,7 +34,7 @@ mount GraphqlMetrics::Engine, at: '/metrics'
 
 ## Note
 
-THis is using an in memory story to record the queries and fields. Therefore you might want to prevent any forking webserver. 
+THis is using an in memory story to record the queries and fields. Therefore you might want to prevent any forking webserver.
 
 Recommend switching to webrick for testing.
 
